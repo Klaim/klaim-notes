@@ -4,3 +4,10 @@ Command line to add to Windows Terminal for having the last Visual Studio compil
 ```
 powershell.exe -NoExit -Command "&{ $vsInstallPath=& "${env:ProgramFiles(x86)}/'Microsoft Visual Studio'/Installer/vswhere.exe" -requires "Microsoft.VisualStudio.Component.VC.Tools.x86.x64" -latest -property installationPath; Import-Module "$vsInstallPath/Common7/Tools/Microsoft.VisualStudio.DevShell.dll"; Enter-VsDevShell -VsInstallPath $vsInstallPath -Arch amd64 -HostArch amd64  -SkipAutomaticLocation }"
 ```
+
+To enable git-bash `ln -s` symbolic link creation on Windows, add this in the `~/.bashrc`
+```
+# Enable symlinks
+export MSYS=winsymlinks:nativestrict
+```
+
